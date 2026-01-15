@@ -29,12 +29,7 @@ datasaurus_dozen %>%
   print()
 ```
 
-
 ### Exercise 2
-
-The answers for this exercise are already provided to help guide you. Clean up the narrative to reflect what you want to submit. Let’s break it into steps:
-
-First, let's plot the data in the dino dataset:
 
 ```{r plot-dino, fig.height=3, fig.width=6}
 dino_data <- datasaurus_dozen %>%
@@ -43,8 +38,6 @@ dino_data <- datasaurus_dozen %>%
 ggplot(data = dino_data, mapping = aes(x = x, y = y)) +
   geom_point()
 ```
-
-Next, let's calculate the correlation between `x` and `y` in this dataset:
 
 ```{r cor-dino}
 dino_data %>%
