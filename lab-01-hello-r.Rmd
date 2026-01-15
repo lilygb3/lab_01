@@ -1,7 +1,7 @@
 ---
 title: "Lab 01 - Hello R"
-author: "Insert your name here"
-date: "Insert date here"
+author: "Lily Botha"
+date: "1/15/2026"
 output: 
   html_document: 
     fig_height: 4
@@ -20,7 +20,15 @@ data("datasaurus_dozen")
 
 ### Exercise 1
 
-Remove this text, and add your answer for Exercise 1 here.
+1846 rows, 3 columns (dataset, x, and y).
+
+```{r}
+data("datasaurus_dozen")
+datasaurus_dozen %>%
+  count(dataset)%>%
+  print()
+```
+
 
 ### Exercise 2
 
