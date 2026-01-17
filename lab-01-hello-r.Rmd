@@ -49,39 +49,41 @@ dino_data %>%
 
 ### Exercise 3
 
-This is your turn to write the code and narrative for the star dataset. Follow the same steps as above to complete the analysis. Don't forget to label your chunks appropriately!
-
-Note that the R chunks are labeled with `plot-star` and `cor-star` to provide spaces to place the code for plotting and calculating the correlation coefficient.
-To finish, clean up the narrative by removing these instructions.
-
 ```{r plot-star}
 # filter for observations where dataset = star, store as new frame named "star_data"
-star_data <- datasaurus_dozen %>%
+dino_data <- datasaurus_dozen %>%
   filter(dataset == "star")
 
-# plot data
-
+# visualize/plot data
+ggplot(data = star_data, mapping = aes(x = x, y = y)) +
+  geom_point()
 ```
-
-I'm some filler text, you should replace me with more meaningful text...
 
 ```{r cor-star}
-
+# calculate correlation coefficient between x and y
+dino_data %>%
+  summarize(r = cor(x, y))
 ```
-Add your explanation here—what did you notice?
-
+The dino and star plot have the same correlation coefficient. 
 
 ### Exercise 4
 
-Add your code and narrative to complete this exercise. Use the conventions from the previous exercises to name your chunks and organize your work.
+```{r plot-circle}
+# filter for observations where dataset = circle, store as new frame named "circle_data"
+circle_data <- datasaurus_dozen %>%
+  filter(dataset == "circle")
 
-```{r}
-
+# visualize/plot data
+ggplot(data = circle_data, mapping = aes(x = x, y = y)) +
+  geom_point()
 ```
 
-```{r}
-
+```{r cor-circle}
+# calculate correlation coefficient between x and y
+circle_data %>%
+  summarize(r = cor(x, y))
 ```
+The dino, star, and circle plots all have very similar correlation coefficients. 
 
 ### Exercise 5
 
