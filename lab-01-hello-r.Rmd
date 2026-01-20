@@ -51,7 +51,7 @@ dino_data %>%
 
 ```{r plot-star}
 # filter for observations where dataset = star, store as new frame named "star_data"
-dino_data <- datasaurus_dozen %>%
+star_data <- datasaurus_dozen %>%
   filter(dataset == "star")
 
 # visualize/plot data
@@ -61,7 +61,7 @@ ggplot(data = star_data, mapping = aes(x = x, y = y)) +
 
 ```{r cor-star}
 # calculate correlation coefficient between x and y
-dino_data %>%
+star_data %>%
   summarize(r = cor(x, y))
 ```
 The dino and star plot have the same correlation coefficient. 
@@ -91,5 +91,20 @@ This is your final exercise! Add code and narrative as needed. Be creative and s
 Add code and narrative as needed.
 
 To add additional R chunks, you can either type the backticks, curly braces, and the letter `r`, or use the "Insert Chunk" button above (the green C+ icon). Have fun!
+
+```{r}
+# facet by the dataset variable, place plots in 3 column grid
+ggplot(datasaurus_dozen, aes(x = x, y = y, color = dataset)) +
+  geom_point() +
+  facet_wrap(~dataset, ncol = 3) +
+  theme(legend.position = "none")
+
+# generate all correlation coefficients
+datasaurus_dozen %>%
+  group_by(dataset) %>%
+  summarize(r = cor(x, y)) %>%
+  print(13)
+```
+
 
 
